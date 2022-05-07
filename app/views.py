@@ -9,10 +9,7 @@ def home():
 def hora():
    return f"{datetime.now()}"
 
-@app.route('/soma')
-def soma():
-   num1 = request.form['num1']
-   num2 = request.form['num2']
-   soma = int(num1 + num2)
-   return f"{soma}"
+@app.route('/soma/<int:num1>/<int:num2>', methods=['GET'])
+def soma(num1, num2):
+   return f"{int(num1 + num2)}"
 
